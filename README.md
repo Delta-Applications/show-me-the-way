@@ -4,6 +4,8 @@ show-me-the-way
 See OSM edits happen in real time.
 Ported to KaiOS with some design changes
 
+![smtw-screenshot](https://user-images.githubusercontent.com/26120324/175791785-e7ed019e-ea8b-4b4a-97cd-55ffa209758e.png)
+
 This code is deployed and running here:
 https://osmlab.github.io/show-me-the-way/
 
