@@ -2,6 +2,7 @@ show-me-the-way
 ===============
 
 See OSM edits happen in real time.
+Ported to KaiOS with some design changes
 
 This code is deployed and running here:
 https://osmlab.github.io/show-me-the-way/
