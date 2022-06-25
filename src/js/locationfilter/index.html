@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>leaflet-locationfilter | show-me-the-way</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="leaflet-locationfilter" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="See OSM edits happen in real time." />
+<meta property="og:description" content="See OSM edits happen in real time." />
+<link rel="canonical" href="http://osmlab.github.io/show-me-the-way/js/locationfilter/" />
+<meta property="og:url" content="http://osmlab.github.io/show-me-the-way/js/locationfilter/" />
+<meta property="og:site_name" content="show-me-the-way" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="leaflet-locationfilter" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"See OSM edits happen in real time.","headline":"leaflet-locationfilter","url":"http://osmlab.github.io/show-me-the-way/js/locationfilter/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/show-me-the-way/assets/css/style.css?v=1523d8bceef8f473e74897fff52b44a7568e1087">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/show-me-the-way/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://osmlab.github.io/show-me-the-way/">show-me-the-way</a></h1>
+      
+
+      <h1 id="leaflet-locationfilter">leaflet-locationfilter</h1>
+
+<p>Provides a location filter for Leaflet. In short, the location filter is 
+a draggable/resizable rectangle. It is integrated with your application
+through a set of callbacks that are called when the user interacts with
+the filter.</p>
+
+<p>leaflet-locationfilter is developed by <a href="http://tripbirds.com">Tripbirds.com</a>.
+You may <a href="http://tripbirds.com/hotels/new-york/?bounds=40.721,-73.992,40.75,-73.969">see it in action here</a>.</p>
+
+<h3 id="usage">Usage</h3>
+<p>Create a new LocationFilter and add it to the map:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">locationFilter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">L</span><span class="p">.</span><span class="nx">LocationFilter</span><span class="p">().</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Bind some events:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">locationFilter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">change</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Do something when the bounds change.</span>
+    <span class="c1">// Bounds are available in `e.bounds`.</span>
+<span class="p">});</span>
+
+<span class="nx">locationFilter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">enabled</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Do something when enabled.</span>
+<span class="p">});</span>
+
+<span class="nx">locationFilter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">disabled</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Do something when disabled.</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Get the current bounds:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">bounds</span> <span class="o">=</span> <span class="nx">locationFilter</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>Check if the location filter is enabled:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">isEnabled</span> <span class="o">=</span> <span class="nx">locationFilter</span><span class="p">.</span><span class="nx">isEnabled</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h3 id="options">Options</h3>
+<p><strong>bounds</strong> (optional): The initial bounds for the location filter. Defaults to the maps own bounds.</p>
+
+<p><strong>enable</strong> (optional): Set to true to enable the filter as soon as it is added to the map. Defaults to false.</p>
+
+<h4 id="events">Events</h4>
+
+<p><strong>change</strong>: Fired when the location filter changes size or position.</p>
+
+<p><strong>enabled</strong>:: Fired when the location filter gets enabled.</p>
+
+<p><strong>disabled</strong>: Fired when the location filter gets disabled.</p>
+
+<p><strong>enableClick</strong>: Fired when the user clicks the enable button.</p>
+
+<p><strong>disableClick</strong>: Fired when the user clicks the disable button.</p>
+
+<p><strong>adjustToZoomClick</strong>: Fired when the user clicks the adjust button.</p>
+
+<h3 id="license">License</h3>
+<p>leaflet-locationfilter is free software, and may be redistributed under the MIT-LICENSE.</p>
+
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/osmlab/show-me-the-way/edit/gh-pages/js/locationfilter/README.md">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

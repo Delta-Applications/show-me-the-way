@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Me The Way</title>
+    <meta charset='utf-8' />
+    <link rel='stylesheet' href='css/leaflet.css' />
+    <link rel='stylesheet' href='css/style.css' />
+    <link rel='stylesheet' href='css/site.css' />
+    <link href='css/opensans.css' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+<div class='container'>
+    <div class='sq overlay round'>
+        <div id='overview_map'></div>
+        <p class='pad2 change-meta' id='reverse-location'></p>
+    </div>
+    <div class='overlay align-bottom'>
+        <div class='pad2' id='changeset_info'></div>
+        <p class='pad2 change-meta' id='comment'></p>
+    </div>
+    <div class='indicator' id='queuesize'></div>
+    <div id='map' class='col12 full-height'></div>
+    <a href='http://openstreetmap.org/' class='byosm'></a>
+</div>
+    <template id='changeset-template'>
+<p><a target='_blank' href='https://openstreetmap.org/browse/changeset/{{meta.changeset}}'>{{meta.timetext}}</a> <a target='_blank' href='https://openstreetmap.org/user/{{meta.user}}'>{{meta.user}}</a>
+     {{meta.action}} <a target='_blank' href='https://openstreetmap.org/browse/{{meta.type}}/{{meta.id}}'>{{tagText}}</a>
+</p>
+    </template>
+    <script src='js/leaflet.js'></script>
+    <script src='js/bundle.js'></script>
+    
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "version": "1",  "name": "Show me the way",
+  "description": "",
+  "launch_path": "/index.html",
+  "fullscreen": true,
+  "icons": {
+    "112": "/assets/icon.png"
+  },
+  "developer": {
+    "name": "LolloDev5123",
+    "url": ""
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "type": "certified",
+  "permissions": {
+    "systemXHR": {
+      "description": "Update using data connection."
+    }
+  }
+}
